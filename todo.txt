@@ -1,6 +1,6 @@
 TODO LIST - CROSS/TICK OFF WHEN DONE 
 
-1) Create basic PyBullet file (can be empty)
+1) Create basic PyBullet file (can be empty) - DONE
 2) Create/Add URDF of IRB6400 robot (with modelled end-effector)
 3) Implement motion control of robot 
 4) Implement friction and normal force plane 
