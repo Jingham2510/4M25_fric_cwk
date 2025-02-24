@@ -10,7 +10,7 @@ p.setGravity(0,0,-10)
 #Create visual friction plane - representation of where the plane is 
 fric_plane = p.loadURDF(os.getcwd() + "\models\plane.urdf")
 
-
+rob = p.loadURDF(os.getcwd() + "\models\IRB_6400.urdf")
 
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)

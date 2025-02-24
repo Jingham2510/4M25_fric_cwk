@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<!-- Robot definition -->
+<robot name = "IRB_6400">
+
+    <!-- Orange Colour Definition-->
+    <material name="ABB_Orange">
+        <color rgba ="0.96 0.47 0.156 1"/>    
+    </material>
+
+
+
+    <!--Link descriptions -->
+    <link name ="base">
+        <visual>
+            <geometry>
+                <cylinder length="0.14" radius="0.76"/>
+            </geometry>
+            <material name="ABB_Orange"/>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder length="0.14" radius="0.76"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+
+    <link name = "link_1">
+        <visual>
+            <geometry>
+                <box size="0.2 0.2 0.8"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+    
+        <collision>
+            <geometry>
+                <box size="0.2 0.2 0.8"/>
+            </geometry>
+        </collision>
+
+        <!-- Fix Inertia!-->
+        <intertial>
+            <mass value="100"/>
+            <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+        </intertial>
+    </link>
+
+
+    <link name = "link_2">
+        <visual>
+            <geometry>
+                <box size="0.2 0.2 1.05"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.2 0.2 1.05"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name = "link_3">
+        <visual>
+            <geometry>
+                <box size="0.4 0.1 0.2"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.4 0.1 0.2"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name = "link_4">
+        <visual>
+            <geometry>
+                <cylinder length = "1.725" radius = "0.1"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length = "1.725" radius = "0.1"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name = "link_5">
+        <visual>
+            <geometry>
+                <cylinder length = "0.2" radius = "0.1"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length = "0.2" radius = "0.1"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+    <link name = "link_6">
+        <visual>
+            <geometry>
+                <cylinder length = "0.2" radius = "0.1"/>
+            </geometry>            
+            <material name="ABB_Orange"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length = "0.2" radius = "0.1"/>
+            </geometry>
+        </collision>
+    </link>
+    
+
+    <!--Joint Descriptions-->
+    <joint name = "joint_1" type ="revolute">        
+        <parent link = "base"/>
+        <child link = "link_1"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="0 0 0" xyz = "0.24 0 0.4"/>
+    </joint>
+
+    <joint name = "joint_2" type ="revolute">        
+        <parent link = "link_1"/>
+        <child link = "link_2"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="0 0 0" xyz = "0 0 0.525"/>
+    </joint>
+
+    <joint name = "joint_3" type ="revolute">        
+        <parent link = "link_2"/>
+        <child link = "link_3"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="0 0 0" xyz = "-0.2 0 0.625"/>
+    </joint>
+
+    <joint name = "joint_4" type ="revolute">        
+        <parent link = "link_3"/>
+        <child link = "link_4"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="0 1.57 0" xyz = "1.0625 0 0"/>
+    </joint>
+
+    <joint name = "joint_5" type ="revolute">        
+        <parent link = "link_4"/>
+        <child link = "link_5"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="1.57 0 0" xyz = "0 0 0.8625"/>
+    </joint>
+
+    <joint name = "joint_6" type ="revolute">        
+        <parent link = "link_5"/>
+        <child link = "link_6"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="1000.0" lower="0.0" upper = "6.28" velocity="0.5"/>
+        <origin rpy="1.57 0 0" xyz = "0 0 0"/>
+    </joint>
+
+
+</robot>
