@@ -12,6 +12,20 @@
     </material>
 
 
+    <!-- Intertia macro definition (src: https://github.com/HumaRobotics/mybot_gazebo_tutorial/blob/master/mybot_description/urdf/macros.xacro) -->
+
+    <macro name="cylinder_inertia" params="m r h">
+        <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                  iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                  izz="${m*r*r/2}" /> 
+      </macro>
+
+      <macro name="box_inertia" params="m x y z">
+        <inertia  ixx="${m*(y*y+z*z)/12}" ixy = "0" ixz = "0"
+                  iyy="${m*(x*x+z*z)/12}" iyz = "0"
+                  izz="${m*(x*x+z*z)/12}" /> 
+      </macro>
+
 
     <!--Link descriptions -->
     <link name ="base">
@@ -27,6 +41,12 @@
                 <cylinder length="0.14" radius="0.76"/>
             </geometry>
         </collision>
+
+
+        <intertial>
+            <mass value="100"/>
+            <cylinder_inertia m="100" r="0.14" h="0.76"/>
+        </intertial>
 
     </link>
 
@@ -45,11 +65,12 @@
             </geometry>
         </collision>
 
-        <!-- Fix Inertia!-->
         <intertial>
-            <mass value="100"/>
-            <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+            <mass value="1"/>
+            <box_inertia m="1" x="0.2" y="0.2" z ="0.8"/>
         </intertial>
+
+
     </link>
 
 
@@ -65,6 +86,12 @@
                 <box size="0.2 0.2 1.05"/>
             </geometry>
         </collision>
+
+        <intertial>
+            <mass value="1"/>
+            <box_inertia m="1" x="0.2" y="0.2" z ="1.05"/>
+        </intertial>
+
     </link>
 
     <link name = "link_3">
@@ -79,6 +106,13 @@
                 <box size="0.4 0.1 0.2"/>
             </geometry>
         </collision>
+
+        <intertial>
+            <mass value="1"/>
+            <box_inertia m="1" x="0.4" y="0.1" z ="0.2"/>
+        </intertial>
+
+
     </link>
 
     <link name = "link_4">
@@ -93,6 +127,12 @@
                 <cylinder length = "1.725" radius = "0.1"/>
             </geometry>
         </collision>
+
+        <intertial>
+            <mass value="1"/>
+            <cylinder_inertia m="1" r="0.1" h="1.725"/>
+        </intertial>
+
     </link>
 
     <link name = "link_5">
@@ -107,6 +147,13 @@
                 <cylinder length = "0.2" radius = "0.1"/>
             </geometry>
         </collision>
+
+        <intertial>
+            <mass value="1"/>
+            <cylinder_inertia m="1" r="0.1" h="0.2"/>
+        </intertial>
+
+
     </link>
 
 
@@ -122,6 +169,12 @@
                 <cylinder length = "0.2" radius = "0.1"/>
             </geometry>
         </collision>
+
+        <intertial>
+            <mass value="1"/>
+            <cylinder_inertia m="1" r="0.1" h="0.2"/>
+        </intertial>
+
     </link>
     
 
