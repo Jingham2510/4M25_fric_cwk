@@ -4,6 +4,7 @@ import pybullet_data
 import os
 physicsClient = p.connect(p.GUI)#or p.DIRECT for non-graphical version
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) #optionally
+
 p.setGravity(0,0,-10)
 
 
