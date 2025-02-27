@@ -15,7 +15,7 @@ p.setGravity(0,0,-10)
 fric_plane = p.loadURDF(os.getcwd() + "\models\plane.urdf", [0,0,0])
 
 #Create the table that holds the material
-table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2.5,0,0.5])
+table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2.5,0,1])
 
 #Create the robot and its associated controller
 rob_cntrl = rob_controller.RobController(physicsClient)
