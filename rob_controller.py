@@ -40,3 +40,14 @@ class RobController():
         return
         
 
+    def get_joint_torques(self):
+
+        jnt_torques = []
+
+        for i in range(self.num_jnts):
+            pos, vel, reac, torq = p.getJointState(self.rob, i)
+
+            jnt_torques.append(torq)
+
+
+        return jnt_torques

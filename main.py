@@ -23,14 +23,14 @@ rob_cntrl = rob_controller.RobController(physicsClient)
 desired_pos = [0, 0, 0, 0, -0.6, 0]
 max_forces = [100, 100, 100, 100, 100, 100]
 
-#set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
+#Steps through the simulation
 for i in range (10000):
     p.stepSimulation()
     time.sleep(1./240.)
 
-
-
     rob_cntrl.set_position(desired_pos, max_forces)
+
+    print(rob_cntrl.get_joint_torques())
 
 
 p.disconnect()
