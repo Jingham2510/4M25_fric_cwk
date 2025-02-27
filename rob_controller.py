@@ -19,6 +19,9 @@ class RobController():
         #-1 because the end-effector doesn't count as a joint
         self.num_jnts = p.getNumJoints(self.rob) - 1 
 
+        #Sets the max forces
+        self.max_forces = [5, 5, 5, 5, 5, 5]
+
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)
 
@@ -32,7 +35,7 @@ class RobController():
         return
 
     #Updates the robots position for a given array of floats
-    def set_position(self, jnt_angles, forces):
+    def set_jnt_angles(self, jnt_angles, forces):
         
         #Check their are the correct number of joint angles
         if(len(jnt_angles) != self.num_jnts or len(forces) != self.num_jnts):
@@ -42,6 +45,18 @@ class RobController():
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL, targetPositions = jnt_angles, forces=forces)
 
         return
+    
+
+    #Set the end-effector to a given xyz position
+    def set_end_pos(self, xyz):
+
+        jnt_angs = p.calculateInverseKinematics(self.rob, self.num_jnts, xyz)
+
+
+        self.set_jnt_angles(jnt_angs, self.max_forces)
+
+        return
+        
         
     #Gets each joint applied torque
     def get_joint_torques(self):
