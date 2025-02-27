@@ -21,6 +21,11 @@ class RobController():
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)
 
+
+        #Set the end-effector to measure the forces applied to it
+        p.enableJointForceTorqueSensor(self.rob, self.num_jnts)
+
+
         print("----ROBOT SPAWNED----")
 
         return
@@ -39,15 +44,21 @@ class RobController():
 
         return
         
-
+    #Gets each joint applied torque
     def get_joint_torques(self):
 
         jnt_torques = []
 
+        #Cycles through each joint and gets the state
         for i in range(self.num_jnts):
             pos, vel, reac, torq = p.getJointState(self.rob, i)
-
             jnt_torques.append(torq)
 
-
         return jnt_torques
+
+    #Gets the force applied on the end-effector
+    def get_end_force(self):
+        
+        pos, vel, reac, torq = p.getJointState(self.rob, self.num_jnts)
+
+        return reac

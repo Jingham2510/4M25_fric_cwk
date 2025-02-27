@@ -28,9 +28,11 @@ for i in range (10000):
     p.stepSimulation()
     time.sleep(1./240.)
 
-    rob_cntrl.set_position(desired_pos, max_forces)
+    #rob_cntrl.set_position(desired_pos, max_forces)
 
-    print(rob_cntrl.get_joint_torques())
+    #print(rob_cntrl.get_joint_torques())
+
+    print(rob_cntrl.get_end_force())
 
 
 p.disconnect()
