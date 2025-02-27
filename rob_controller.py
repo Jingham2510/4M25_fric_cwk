@@ -4,6 +4,7 @@ import os
 
 """
 Controls the robot URDF model of the ABB IRB6400
+-In our theoretical model, this is the low level controller that performs and records
 """
 class RobController():
 
@@ -29,8 +30,6 @@ class RobController():
         print("----ROBOT SPAWNED----")
 
         return
-    
-
 
     #Updates the robots position for a given array of floats
     def set_position(self, jnt_angles, forces):
