@@ -7,7 +7,7 @@ TODO LIST - CROSS/TICK OFF WHEN DONE
  3a) Fine tune rotation allowances (Done)
  3b) Fine tune max forces 
  3c) Add end-effector to URDF (done)
- 3d) fine tune URDF -joints etc
+ 3d) fine tune URDF -joints (done)
 4) Implement object with set friction/stiffness
 5) Complete validity test (i.e. run multiple times through same "k" value - show there the same)
 6) Sweep through k/mu values, plot against avg torques experienced (can do a 3d plot showing how the forces change)
