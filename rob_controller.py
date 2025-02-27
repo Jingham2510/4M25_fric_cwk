@@ -15,7 +15,8 @@ class RobController():
         #Create a copy of the robot at the origin
         self.rob = p.loadURDF(os.getcwd() + "\models\IRB_6400.urdf")
 
-        self.num_jnts = p.getNumJoints(self.rob)
+        #-1 because the end-effector doesn't count as a joint
+        self.num_jnts = p.getNumJoints(self.rob) - 1 
 
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)

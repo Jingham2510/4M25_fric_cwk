@@ -14,10 +14,13 @@ p.setGravity(0,0,-10)
 #Create visual friction plane - representation of where the plane is 
 fric_plane = p.loadURDF(os.getcwd() + "\models\plane.urdf", [0,0,0])
 
+#Create the table that holds the material
+table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2.5,0,0.5])
+
 #Create the robot and its associated controller
 rob_cntrl = rob_controller.RobController(physicsClient)
 
-desired_pos = [0, 0, 0, 0.5, 1, 3]
+desired_pos = [0, 0, 0, 0, -0.6, 0]
 max_forces = [100, 100, 100, 100, 100, 100]
 
 #set the center of mass frame (loadURDF sets base link frame) startPos/Ornp.resetBasePositionAndOrientation(boxId, startPos, startOrientation)
