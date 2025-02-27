@@ -20,7 +20,7 @@ class RobController():
         self.num_jnts = p.getNumJoints(self.rob) - 1 
 
         #Sets the max forces
-        self.max_forces = [5, 5, 5, 5, 5, 5]
+        self.max_forces = [1000, 1000, 1000, 1000, 1000, 1000]
 
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)
@@ -50,7 +50,9 @@ class RobController():
     #Set the end-effector to a given xyz position
     def set_end_pos(self, xyz):
 
-        jnt_angs = p.calculateInverseKinematics(self.rob, self.num_jnts, xyz)
+        ori = [0, 0 , 0, 1]
+
+        jnt_angs = p.calculateInverseKinematics(self.rob, self.num_jnts, xyz, ori)
 
 
         self.set_jnt_angles(jnt_angs, self.max_forces)

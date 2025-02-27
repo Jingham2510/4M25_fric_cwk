@@ -20,16 +20,23 @@ table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2,0,1])
 #Create the robot and its associated controller
 rob_cntrl = rob_controller.RobController(physicsClient)
 
-desired_pos = [0, 0.375, 0.25, 0, -0.4, 0]
-max_forces = [100, 100, 100, 100, 100, 100]
+desired_pos = [0, 0, 0, 0, 0, 0]
+max_forces = [1000, 1000, 1000, 1000, 1000, 1000]
 
-rob_cntrl.set_jnt_angles(desired_pos, max_forces)
+rob_cntrl.set_end_pos([1.9131330292961946, -0.01605496867055284, 0.43960405690302545])
 
 #Steps through the simulation
 for i in range (10000):
     p.stepSimulation()
     time.sleep(1./240.)
 
-    #rob_cntrl.set_end_pos([2,0,1])
+    pos = p.getLinkState(rob_cntrl.rob, 6)
 
+    print(pos)
+
+    
+    if i > 1000:
+        rob_cntrl.set_end_pos([1.9131330292961946, 1, 0.43960405690302545])
+
+    
 p.disconnect()
