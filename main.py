@@ -15,13 +15,13 @@ p.setGravity(0,0,-10)
 fric_plane = p.loadURDF(os.getcwd() + "\models\plane.urdf", [0,0,0])
 
 #Create the table that holds the material
-table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2,0,1])
+table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2,0,0.2])
 
 #Create the robot and its associated controller
 rob_cntrl = rob_controller.RobController(physicsClient)
 
 desired_pos = [0, 0, 0, 0, 0, 0]
-max_forces = [1000, 1000, 1000, 1000, 1000, 1000]
+max_forces = [100, 100, 100, 100, 100, 100]
 
 rob_cntrl.set_end_pos([1.9131330292961946, -0.01605496867055284, 0.43960405690302545])
 
@@ -36,7 +36,7 @@ for i in range (10000):
 
     
     if i > 1000:
-        rob_cntrl.set_end_pos([1.9131330292961946, 1, 0.43960405690302545])
+        rob_cntrl.set_end_pos([1.9131330292961946, 0.35, 0.43960405690302545])
 
     
 p.disconnect()
