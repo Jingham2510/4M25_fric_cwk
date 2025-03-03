@@ -28,7 +28,7 @@ class TorqueRecorder():
     
         for jnt in range(self.rob.num_jnts):
             self.torques[jnt].append(curr_torques[jnt])
-            self.times.append(datetime.datetime.now())
+            self.times.append(datetime.datetime.now().time())
 
         return
 
