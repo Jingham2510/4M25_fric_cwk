@@ -8,8 +8,9 @@ TODO LIST - CROSS/TICK OFF WHEN DONE
  3b) Fine tune max forces 
  3c) Add end-effector to URDF (done)
  3d) fine tune URDF -joints (done)
-4) Implement object with set friction/stiffness
-5) Complete validity test (i.e. run multiple times through same "k" value - show there the same)
-6) Sweep through k/mu values, plot against avg torques experienced (can do a 3d plot showing how the forces change)
-7)Implement predictive controller
-7a) Expand when points are known better.
+4) Implement torque recorder
+5) Implement object with set friction/stiffness
+6) Complete validity test (i.e. run multiple times through same "k" value - show there the same)
+7) Sweep through k/mu values, plot against avg torques experienced (can do a 3d plot showing how the forces change)
+8)Implement predictive controller
+8a) Expand when points are known better.
