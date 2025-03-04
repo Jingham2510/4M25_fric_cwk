@@ -22,7 +22,7 @@ table = p.loadURDF(os.getcwd() + "/models/table.urdf", [2,0,0.2])
 rob_cntrl = rob_controller.RobController(physicsClient)
 desired_pos = [0, 0, 0, 0, 0, 0]
 max_forces = [100, 100, 100, 100, 100, 100]
-rob_cntrl.set_end_pos([1.9131330292961946, -0.01605496867055284, 0.43960405690302545])
+rob_cntrl.set_end_pos([1.6, -0.5, 0.45])
 
 
 #Create the torque recorder
@@ -36,8 +36,8 @@ for i in range (2000):
 
     tq_rec.measure_torque()   
     if i > 1000:
-        rob_cntrl.set_end_pos([1.9131330292961946, 0.35, 0.43960405690302545])
-
+        rob_cntrl.set_end_pos([1.9, 0.35, 0.45])
+        #rob_cntrl.set_end_pos([1.9131330292961946, 0.35 + i/100, 0.43960405690302545])
 
 
 tq_rec.save_torque_info()    

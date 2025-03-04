@@ -209,7 +209,8 @@
         <parent link = "base"/>
         <child link = "link_1"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000.0" lower="-3.14" upper = "3.14" velocity="0.5"/>
+        <dynamics damping="25.0" friction="25.0"/>
+        <limit effort="10.0" lower="-3.14" upper = "3.14" velocity="0.01"/>
         <origin rpy="0 0 0" xyz = "0.24 0 0.4"/>
     </joint>
 
@@ -217,7 +218,8 @@
         <parent link = "link_1"/>
         <child link = "link_2"/>
         <axis xyz="0 1 0"/>
-        <limit effort="1000.0" lower="-1.2" upper = "1.4" velocity="0.5"/>
+        <dynamics damping="25.0" friction="25.0"/>
+        <limit effort="10.0" lower="-1.2" upper = "1.4" velocity="0.01"/>
         <origin rpy="0 0 0" xyz = "0 0 0.525"/>
     </joint>
 
@@ -225,7 +227,8 @@
         <parent link = "link_2"/>
         <child link = "link_3"/>
         <axis xyz="0 1 0"/>
-        <limit effort="1000.0" lower="-0.48" upper = "1.91" velocity="0.5"/>
+        <dynamics damping="25.0" friction="25.0"/>
+        <limit effort="10.0" lower="-0.48" upper = "1.91" velocity="0.01"/>
         <origin rpy="0 0 0" xyz = "-0.2 0 0.625"/>
     </joint>
 
@@ -233,7 +236,8 @@
         <parent link = "link_3"/>
         <child link = "link_4"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000.0" lower="-5.2" upper = "5.2" velocity="0.5"/>
+       
+        <limit effort="10.0" lower="-5.2" upper = "5.2" velocity="0.01"/>
         <origin rpy="0 1.57 0" xyz = "1.0625 0 0"/>
     </joint>
 
@@ -241,7 +245,8 @@
         <parent link = "link_4"/>
         <child link = "link_5"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000.0" lower="-2.09" upper = "2.09" velocity="0.5"/>
+        
+        <limit effort="10.0" lower="-2.09" upper = "2.09" velocity="0.01"/>
         <origin rpy="1.57 0 0" xyz = "0 0 0.8625"/>
     </joint>
 
@@ -249,7 +254,8 @@
         <parent link = "link_5"/>
         <child link = "link_6"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000.0" lower="-5.2" upper = "5.2" velocity="0.5"/>
+        
+        <limit effort="10.0" lower="-5.2" upper = "5.2" velocity="0.01"/>
         <origin rpy="1.57 0 0" xyz = "0 0 0"/>
     </joint>
 
