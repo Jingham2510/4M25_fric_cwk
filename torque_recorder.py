@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import datetime
 
 #Basic object which records the torque measured in the joints of a given urdf model and saves it to a given filename
@@ -46,7 +45,7 @@ class TorqueRecorder():
             for i in range(len(self.torques[0])):
 
                 #Write out the time
-                f.write(str(self.times[i]))
+                f.write(str(self.times[i]) + ",")
 
                 #Write every joint info
                 for j in range(len(self.torques)):
