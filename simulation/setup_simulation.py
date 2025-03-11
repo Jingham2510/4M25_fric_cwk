@@ -12,7 +12,7 @@ def setup_environment():
 
     robot_position = [0,0,0]
     robot_id = p.loadURDF(os.path.join("models", "IRB_6400.urdf"), robot_position, useFixedBase=True)
-    apply_end_effecter_stiffness(robot_id)
+    apply_end_effector_stiffness(robot_id)
 
 
     block_position = [2, 0, 0] 
@@ -34,7 +34,7 @@ def apply_block_stiffness(object_id):
         contactDamping=0.1             # Damping to reduce oscillations
     )
 
-def apply_end_effecter_stiffness(object_id):
+def apply_end_effector_stiffness(object_id):
     p.changeDynamics(
     bodyUniqueId=object_id,
     linkIndex=6,                 # This is the "end-effecter" link
