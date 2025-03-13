@@ -2,7 +2,7 @@ import os
 import pybullet_data
 import pybullet as p
 import time
-import rob_controller_impedance as controller
+import rob_controller as controller
 #import rob_controller_inversekinematics as controller
 import torque_recorder
 

@@ -56,3 +56,28 @@ class RobController:
         Retrieves the force being applied to the end-effector.
         """
         return p.getJointState(self.rob, self.ee_index)[2]
+    
+    #Updates the robots position for a given array of floats
+    def set_jnt_angles(self, jnt_angles, forces):
+        
+        #Check their are the correct number of joint angles
+        if(len(jnt_angles) != self.num_jnts or len(forces) != self.num_jnts):
+            print("Incorrect number of joint angles/forces!")
+            return
+        
+        p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL, targetPositions = jnt_angles, forces=forces)
+
+        return
+    
+
+    #Uses Inverse Kinematics to set the robots end-effector position
+    def IK_set_end_pos(self, xyz):
+
+        ori = [0, 0 , 0, 1]
+
+        jnt_angs = p.calculateInverseKinematics(self.rob, self.num_jnts, xyz, ori)
+
+
+        self.set_jnt_angles(jnt_angs, self.max_forces)
+
+        return
