@@ -56,3 +56,15 @@ class RobController:
         Retrieves the force being applied to the end-effector.
         """
         return p.getJointState(self.rob, self.ee_index)[2]
+    
+    def get_joint_position_velocity(self):
+
+        joint_positions = []
+        joint_velocities = []
+
+        for i in range(self.num_jnts):
+            pos, vel, _, _ = p.getJointState(self.rob, i)
+            joint_positions.append(pos)
+            joint_velocities.append(vel)
+
+        return joint_positions, joint_velocities

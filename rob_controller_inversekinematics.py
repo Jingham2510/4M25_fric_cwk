@@ -20,7 +20,7 @@ class RobController():
         self.num_jnts = p.getNumJoints(self.rob) - 1 
 
         #Sets the max forces
-        self.max_forces = [25, 100, 100, 50, 50, 50]
+        self.max_forces = [50, 100, 100, 100, 100, 100]
 
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)
