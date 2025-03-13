@@ -4,9 +4,8 @@ import datetime
 class TorqueRecorder():
 
 
-    def __init__(self, filename, rob):
+    def __init__(self,  rob):
 
-        self.filename = filename
         self.rob = rob
 
         #The times of the measurements
@@ -33,10 +32,10 @@ class TorqueRecorder():
 
 
     #Save all the torque info to the file
-    def save_torque_info(self):
+    def save_torque_info(self, filename):
 
         #Open the file
-        with open(self.filename, "w+") as f:
+        with open(filename, "w+") as f:
 
             f.write(f"{datetime.datetime.now()} - Joint Torques \n")
 
