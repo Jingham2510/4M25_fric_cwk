@@ -15,3 +15,5 @@ TODO LIST - CROSS/TICK OFF WHEN DONE
 7) Sweep through k/mu values, plot against avg torques experienced (can do a 3d plot showing how the forces change)
 8)Implement predictive controller
 8a) Expand when points are known better.
+
+9) Simulated torque noise! (Add Guassian noise to each signal)
