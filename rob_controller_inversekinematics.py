@@ -8,13 +8,13 @@ Controls the robot URDF model of the ABB IRB6400
 """
 class RobController():
 
-    def __init__(self, phys_client):
+    def __init__(self, phys_client, robot_id):
         
 
         self.p = phys_client
 
         #Create a copy of the robot at the origin
-        self.rob = p.loadURDF(os.getcwd() + "\models\IRB_6400.urdf")
+        self.rob = robot_id
 
         #-1 because the end-effector doesn't count as a joint
         self.num_jnts = p.getNumJoints(self.rob) - 1 
