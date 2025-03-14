@@ -54,7 +54,7 @@ def main():
         elif step < 1000:
             rob_cntrl.set_end_pos([2, 0, 0.2 + 0.02])
         else:
-            rob_cntrl.set_end_pos([2, 0.75, 0.2 + 0.02])
+            rob_cntrl.set_end_pos([2, 1, 0.2 + 0.02])
 
         if step > 250:
             logger.record_data()

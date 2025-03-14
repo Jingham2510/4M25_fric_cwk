@@ -4,7 +4,7 @@ import numpy as np
 import csv
 from logs.joint_data_logger import JointDataLogger
 
-data_filename = "logs/robot_data.csv"
+data_filename = "logs/robot_data_filtered.csv"
 urdf_path = "models/IRB_6400.urdf"
 output_csv = "external_force.csv"
 
@@ -42,7 +42,7 @@ for t in range(num_timesteps - 1):
 
     tau_ext = []
     for j in range(num_joints):
-        tau_ext.append(tau_meas[j] - tau_no_contact[j])
+        tau_ext.append( - tau_meas[j] + tau_no_contact[j])
 
     lin_jac, ang_jac = p.calculateJacobian(
         bodyUniqueId=robot_id,

@@ -14,7 +14,7 @@
     <link name = "block">
         <visual>
             <geometry>
-                <box size="2 2 0.4"/>
+                <box size="2 4 0.4"/>
             </geometry>
             <material name="Blue"/>
         </visual>

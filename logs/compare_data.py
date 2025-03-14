@@ -74,7 +74,7 @@ def compare_robot_data(file_with, file_without):
     plt.xlabel("Time Step")
     plt.ylabel("Torque (Nm)")
     plt.title("Joint Torques: With vs. Without Friction")
-    plt.legend()
+    #plt.legend()
     plt.show()
 
 
