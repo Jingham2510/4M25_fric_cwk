@@ -1,6 +1,4 @@
 import pybullet as p
-import os 
-
 
 """
 Controls the robot URDF model of the ABB IRB6400
@@ -20,7 +18,7 @@ class RobController():
         self.num_jnts = p.getNumJoints(self.rob) - 1 
 
         #Sets the max forces
-        self.max_forces = [50, 100, 100, 100, 100, 100]
+        self.max_forces = [50, 100, 100, 25, 25, 25]
 
         #Set the control mode (curr - position controller)
         p.setJointMotorControlArray(self.rob, [i for i in range(self.num_jnts)], p.POSITION_CONTROL)
@@ -78,3 +76,15 @@ class RobController():
         pos, vel, reac, torq = p.getJointState(self.rob, self.num_jnts)
 
         return reac
+    
+    def get_joint_position_velocity(self):
+
+        joint_positions = []
+        joint_velocities = []
+
+        for i in range(self.num_jnts):
+            pos, vel, _, _ = p.getJointState(self.rob, i)
+            joint_positions.append(pos)
+            joint_velocities.append(vel)
+
+        return joint_positions, joint_velocities
