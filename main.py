@@ -6,9 +6,11 @@ import time
 import rob_controller_inversekinematics as controller
 import logs.joint_data_logger as joint_data_logger
 
-def main():
+def main(fric, stiffness, folder):
 
-    physicsClient = p.connect(p.GUI)
+    print("RUN STARTED")
+
+    physicsClient = p.connect(p.DIRECT)
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0, 0, -9.8)
 
@@ -33,16 +35,16 @@ def main():
     p.changeDynamics(
         bodyUniqueId=block_id,
         linkIndex=-1,                  # -1 for the base link of the block
-        lateralFriction=0.6,           # Sliding friction coefficient
+        lateralFriction=fric,           # Sliding friction coefficient
         spinningFriction=0.2,          # Friction against in-place rotation
         rollingFriction=0.1,           # Friction against rolling
         restitution=0.1,               # Bounciness of the block (elasticity)
         frictionAnchor=False,           # Keeps friction stable
-        contactStiffness=1500,         # Spring stiffness (N/m)
+        contactStiffness=stiffness,         # Spring stiffness (N/m)
         contactDamping=0.1             # Damping to reduce oscillations
     )
 
-    logger = joint_data_logger.JointDataLogger(f"{os.getcwd()}/logs/robot_data.csv", rob_cntrl)
+    logger = joint_data_logger.JointDataLogger(f"{os.getcwd()}/logs/{folder}/fric_{fric}_stiff_{stiffness}_robot_data.csv", rob_cntrl)
 
 
     for step in range(1500):
@@ -62,5 +64,23 @@ def main():
     logger.save_data()  
     p.disconnect()
 
+
+    print("RUN COMPLETE")
+
 if __name__ == "__main__":
-    main()
+
+    """
+    The current test is one where the stiffness of the material is changed and the friction is held the same
+    The idea being to test how our friciton estimation performs if the stiffness of the material changes
+    """
+    current_test = "sweep_stiff"
+
+    friction = 0.6
+
+    for i in range(1400, 1600, 5):
+        main(friction, i, current_test)
+
+
+
+    
+
