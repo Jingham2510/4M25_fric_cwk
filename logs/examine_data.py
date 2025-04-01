@@ -38,10 +38,11 @@ def plot_robot_data(csv_filename):
     for j in range(n_joints):
         jnt_torques = [record["torques"][j] for record in loaded_data]
         plt.plot(time_steps, jnt_torques, label=f"Joint {j}")
+    plt.title("Joint Torques")
     plt.xlabel("Time Step")
     plt.ylabel("Torque (Nm)")
     plt.legend()
     plt.show()
 
 
-plot_robot_data("logs/robot_data.csv")
+plot_robot_data("logs/robot_data_filtered.csv")
