@@ -70,8 +70,8 @@ def main(fric, stiffness, folder):
 if __name__ == "__main__":
 
     """
-    The current test is one where the stiffness of the material is changed and the friction is held the same
-    The idea being to test how our friciton estimation performs if the stiffness of the material changes
+    The current test is one where the friction of the material is changed and the stiffness is held the same
+    The idea being to test how our stiffness estimation performs if the friction of the material changes
     """
     current_test = "sweep_fric"
 
