@@ -73,12 +73,14 @@ if __name__ == "__main__":
     The current test is one where the stiffness of the material is changed and the friction is held the same
     The idea being to test how our friciton estimation performs if the stiffness of the material changes
     """
-    current_test = "sweep_stiff"
+    current_test = "sweep_fric"
 
-    friction = 0.6
+    
+    stiffness = 1500
 
-    for i in range(1400, 1600, 5):
-        main(friction, i, current_test)
+    for i in range(20, 100, 5):
+
+        main((i/100), stiffness, current_test)
 
 
 

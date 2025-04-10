@@ -4,7 +4,7 @@ import numpy as np
 import csv
 from logs.joint_data_logger import JointDataLogger
 
-data_filename = "logs/sweep_stiff/fric_0.6_stiff_1400_robot_data.csv"
+data_filename = "logs/sweep_stiff/fric_0.6_stiff_1595_robot_data.csv"
 urdf_path = "models/IRB_6400.urdf"
 output_csv = "external_force.csv"
 
